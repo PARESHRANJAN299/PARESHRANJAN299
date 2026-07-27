@@ -22,14 +22,10 @@
 
 <div align="center">
 
-<img src="1.01x-binary-core.jpg" width="48%"/>
-<img src="37.8x-growth-metrics.jpg" width="48%"/>
+<img src="1.01x-binary-core.jpg" width="260"/>
+<img src="paresh.jpg" width="260"/>
 
-**Day 1: +1%** — one line of code, one query, one rep at a time. &nbsp;&nbsp;|&nbsp;&nbsp; **Day 365: 37.8x** — this is what compounding actually looks like.
-
-<img src="paresh.jpg" width="60%"/>
-
-**The vision** — building a world from zero, one number at a time.
+**+1% today, compounding into 37.8x** — this is what the daily grind actually builds toward.
 
 </div>
 
