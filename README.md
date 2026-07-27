@@ -89,6 +89,30 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 
 ---
 
+## ⚡ Core Domains — Data Engineering × Robotics
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=100&section=header&text=Data%20Engineering&fontSize=26&fontColor=ffffff&animation=fadeIn&fontAlignY=45" width="49%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=100&section=header&text=Robotics&fontSize=26&fontColor=ffffff&animation=fadeIn&fontAlignY=45" width="49%"/>
+
+![SQL](https://img.shields.io/badge/SQL-0f2027?style=for-the-badge&logo=postgresql&logoColor=00c9ff)
+![Python](https://img.shields.io/badge/Python-0f2027?style=for-the-badge&logo=python&logoColor=00c9ff)
+![PySpark](https://img.shields.io/badge/PySpark-0f2027?style=for-the-badge&logo=apachespark&logoColor=00c9ff)
+![AWS](https://img.shields.io/badge/AWS-0f2027?style=for-the-badge&logo=amazonaws&logoColor=00c9ff)
+![Kafka](https://img.shields.io/badge/Kafka-0f2027?style=for-the-badge&logo=apachekafka&logoColor=00c9ff)
+![dbt](https://img.shields.io/badge/dbt-0f2027?style=for-the-badge&logo=dbt&logoColor=00c9ff)
+
+![ROS](https://img.shields.io/badge/ROS-0f2027?style=for-the-badge&logo=ros&logoColor=00c9ff)
+![Arduino](https://img.shields.io/badge/Arduino-0f2027?style=for-the-badge&logo=arduino&logoColor=00c9ff)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-0f2027?style=for-the-badge&logo=raspberrypi&logoColor=00c9ff)
+![C++](https://img.shields.io/badge/C%2B%2B-0f2027?style=for-the-badge&logo=cplusplus&logoColor=00c9ff)
+![OpenCV](https://img.shields.io/badge/OpenCV-0f2027?style=for-the-badge&logo=opencv&logoColor=00c9ff)
+
+</div>
+
+---
+
 ## 📊 GitHub Stats
 
 <div align="center">
