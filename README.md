@@ -138,8 +138,7 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=PARESHRANJAN299&show_icons=true&theme=react&hide_border=true&count_private=true" width="49%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="49%"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="60%"/>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=PARESHRANJAN299&theme=react-dark&hide_border=true" width="100%"/>
 
