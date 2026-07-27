@@ -22,8 +22,7 @@
 
 <div align="center">
 
-<img src="1.01x-binary-core.jpg" width="260"/>
-<img src="paresh.jpg" width="260"/>
+<img src="paresh.jpg" width="320"/>
 
 **+1% today, compounding into 37.8x** — this is what the daily grind actually builds toward.
 
