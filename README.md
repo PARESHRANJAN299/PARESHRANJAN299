@@ -1,15 +1,17 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=220&section=header&text=Paresh%20Ranjan%20Rout&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Started%20from%20Zero%20%7C%201%25%20Better%20Every%20Day&descAlignY=55&descSize=18" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,25:302b63,50:24243e,75:1a1a2e,100:0f0c29&height=240&section=header&text=Paresh%20Ranjan%20Rout&fontSize=46&fontColor=ffd700&animation=fadeIn&fontAlignY=32&desc=Started%20from%20Zero%20%C2%B7%20Compounding%201%25%20Every%20Day&descAlignY=52&descSize=16&descAlign=50" width="100%"/>
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=22&pause=1000&color=00C9FF&center=true&vCenter=true&width=800&lines=Started+from+Zero.+No+shortcuts.;1%25+better%2C+every+single+day.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%40+SushaAstra+Technology+(SST)" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=3000&pause=1200&color=FFD700&center=true&vCenter=true&width=650&height=40&lines=Start+at+zero.+Compound+daily.;%2B1%25+today+%E2%86%92+37x+in+a+year.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" />
 
-<br/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:ffd700,100:00c9ff&height=3&width=800" width="60%"/>
 
-![Profile Views](https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=00c9ff&style=for-the-badge&label=PROFILE%20VIEWS)
-![Followers](https://img.shields.io/github/followers/PARESHRANJAN299?style=for-the-badge&color=2c5364&label=Followers)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/paresh-ranjan-rout-7a2788227)
-[![YouTube](https://img.shields.io/badge/YouTube-SushaAstra%20Official-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@SushaAstraOfficial)
+<br/><br/>
+
+![Profile Views](https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS&labelColor=ffd700)
+![Followers](https://img.shields.io/github/followers/PARESHRANJAN299?style=for-the-badge&color=1a1a2e&labelColor=ffd700&label=FOLLOWERS)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=0A66C2&labelColor=1a1a2e)](https://linkedin.com/in/paresh-ranjan-rout-7a2788227)
+[![YouTube](https://img.shields.io/badge/YouTube-SushaAstra-1a1a2e?style=for-the-badge&logo=youtube&logoColor=FF0000&labelColor=1a1a2e)](https://youtube.com/@SushaAstraOfficial)
 
 </div>
 
@@ -67,7 +69,7 @@ Neither kid needed talent on day one. The gap wasn't ability — it was **compou
 
 The clearest proof-of-concept for this philosophy — tracked publicly, day by day:
 
-### 📌 [Data Engineering Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-AI_-_Data_Engineering_25_Lakhs)
+### 📌 [The Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-AI_-_Data_Engineering_25_Lakhs)
 A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, System Design, and DSA — every subject logged, every day of effort tracked, every skill built from absolute zero.
 
 ---
