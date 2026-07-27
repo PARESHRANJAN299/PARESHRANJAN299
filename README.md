@@ -4,7 +4,7 @@
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=3000&pause=1200&color=FFD700&center=true&vCenter=true&width=650&height=40&lines=Start+at+zero.+Compound+daily.;%2B1%25+today+%E2%86%92+37x+in+a+year.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" />
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=16&duration=2500&pause=800&color=00FF9C&center=true&vCenter=true&width=750&height=35&lines=E+%3D+mc%C2%B2+%C2%B7+%CF%80+%3D+3.14159...+%C2%B7+%E2%88%91(1.01%5En)+%3D+37.8x;for+day+in+range(365)%3A+skill+%2B%3D+1%25;Zero+%E2%86%92+Code+%E2%86%92+Machines+%E2%86%92+World;01001101 01000001 01010100 01001000" alt="Terminal Reel" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=16&duration=2500&pause=800&color=00FF9C&center=true&vCenter=true&width=750&height=35&lines=E+%3D+mc%C2%B2+%C2%B7+%CF%80+%3D+3.14159+%C2%B7+%E2%88%91%281.01%5En%29+%3D+37.8x;for+day+in+range%28365%29%3A+skill+%2B%3D+1%25;Zero+%E2%86%92+Code+%E2%86%92+Machines+%E2%86%92+World;01001101+01000001+01010100+01001000" alt="Terminal Reel" />
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:ffd700,100:00c9ff&height=3&width=800" width="60%"/>
 
