@@ -149,6 +149,8 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 
 <div align="center">
 
+<img src="1.01x-binary-core.jpg" width="320"/>
+
 **Zero to 1% — not by luck, but by daily 1%. 🚀**
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00c9ff,50:2c5364,100:0f2027&height=120&section=footer&animation=fadeIn" width="100%"/>
