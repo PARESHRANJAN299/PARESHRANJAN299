@@ -4,7 +4,7 @@
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=3000&pause=1200&color=FFD700&center=true&vCenter=true&width=650&height=40&lines=Start+at+zero.+Compound+daily.;%2B1%25+today+%E2%86%92+37x+in+a+year.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" />
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=16&duration=2500&pause=800&color=00FF9C&center=true&vCenter=true&width=750&height=35&lines=E+%3D+mc%C2%B2+%C2%B7+%CF%80+%3D+3.14159+%C2%B7+%E2%88%91%281.01%5En%29+%3D+37.8x;for+day+in+range%28365%29%3A+skill+%2B%3D+1%25;Zero+%E2%86%92+Code+%E2%86%92+Machines+%E2%86%92+World;01001101+01000001+01010100+01001000" alt="Terminal Reel" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=16&duration=2500&pause=800&color=00FF9C&center=true&vCenter=true&width=750&height=35&lines=E+%3D+mc%5E2+...+1.01%5E365+%3D+37.8x;for+day+in+range%28365%29%3A+skill+%2B%3D+1%25;Zero+-%3E+Code+-%3E+Machines+-%3E+World;01001101+01000001+01010100+01001000" alt="Terminal Reel" />
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:ffd700,100:00c9ff&height=3&width=800" width="60%"/>
 
@@ -99,8 +99,7 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=100&section=header&text=Data%20Engineering&fontSize=26&fontColor=ffffff&animation=fadeIn&fontAlignY=45" width="49%"/>
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=100&section=header&text=Robotics&fontSize=26&fontColor=ffffff&animation=fadeIn&fontAlignY=45" width="49%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=90&section=header&text=Data%20Engineering&fontSize=24&fontColor=ffffff&animation=fadeIn&fontAlignY=50" width="100%"/>
 
 ![SQL](https://img.shields.io/badge/SQL-0f2027?style=for-the-badge&logo=postgresql&logoColor=00c9ff)
 ![Python](https://img.shields.io/badge/Python-0f2027?style=for-the-badge&logo=python&logoColor=00c9ff)
@@ -108,6 +107,10 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 ![AWS](https://img.shields.io/badge/AWS-0f2027?style=for-the-badge&logo=amazonaws&logoColor=00c9ff)
 ![Kafka](https://img.shields.io/badge/Kafka-0f2027?style=for-the-badge&logo=apachekafka&logoColor=00c9ff)
 ![dbt](https://img.shields.io/badge/dbt-0f2027?style=for-the-badge&logo=dbt&logoColor=00c9ff)
+
+<br/><br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=90&section=header&text=Robotics&fontSize=24&fontColor=ffffff&animation=fadeIn&fontAlignY=50" width="100%"/>
 
 ![ROS](https://img.shields.io/badge/ROS-0f2027?style=for-the-badge&logo=ros&logoColor=00c9ff)
 ![Arduino](https://img.shields.io/badge/Arduino-0f2027?style=for-the-badge&logo=arduino&logoColor=00c9ff)
