@@ -22,15 +22,14 @@
 
 <div align="center">
 
-<img src="1.00x-data-foundation.jpg" width="48%"/>
 <img src="1.01x-binary-core.jpg" width="48%"/>
-
-**Day 1: 1.00x** — everyone starts here, data and all. &nbsp;&nbsp;|&nbsp;&nbsp; **+1% today** — one line of code, one query, one rep at a time.
-
 <img src="37.8x-growth-metrics.jpg" width="48%"/>
-<img src="paresh.jpg" width="48%"/>
 
-**Day 365: 37.8x** — this is what compounding actually looks like. &nbsp;&nbsp;|&nbsp;&nbsp; **The vision** — building a world from zero, one number at a time.
+**Day 1: +1%** — one line of code, one query, one rep at a time. &nbsp;&nbsp;|&nbsp;&nbsp; **Day 365: 37.8x** — this is what compounding actually looks like.
+
+<img src="paresh.jpg" width="60%"/>
+
+**The vision** — building a world from zero, one number at a time.
 
 </div>
 
