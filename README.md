@@ -74,16 +74,21 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 
 ---
 
-## 🧰 Tools I Build With
+## 🔑 Tools I Build With
 
 <div align="center">
 
-![Skills](https://skillicons.dev/icons?i=python,postgres,mysql,aws,docker,git,github,linux,bash,vscode,jupyter)
+> *These aren't keys to a paycheck — they're the keys to the world I'm going to build.*
+> *I'm not learning these to earn money. One day I'll build my own world with them — starting from zero, no matter how long it takes.*
+
+![Skills](https://skillicons.dev/icons?i=python,postgres,mysql,aws,azure,docker,git,github,linux,bash,vscode,jupyter)
 
 ![Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![DSA](https://img.shields.io/badge/DSA-2c5364?style=for-the-badge&logo=leetcode&logoColor=white)
 
 </div>
 
