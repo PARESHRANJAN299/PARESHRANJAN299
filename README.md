@@ -1,6 +1,8 @@
+<h1 align="center">Paresh Ranjan Rout</h1>
+
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=240&section=header&text=Paresh%20Ranjan%20Rout&fontSize=46&fontColor=ffd700&animation=fadeIn&fontAlignY=32&desc=Started%20from%20Zero%20%C2%B7%20Compounding%201%25%20Every%20Day&descAlignY=52&descSize=16&descAlign=50" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=240&section=header&text=Robotics%20%2B%20Data%20Engineering&fontSize=46&fontColor=ffd700&animation=fadeIn&fontAlignY=32&desc=Started%20from%20Zero%20%C2%B7%20Compounding%201%25%20Every%20Day&descAlignY=52&descSize=16&descAlign=50" width="100%"/>
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=3000&pause=1200&color=FFD700&center=true&vCenter=true&width=650&height=40&lines=Start+at+zero.+Compound+daily.;%2B1%25+today+%E2%86%92+37x+in+a+year.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" />
 
@@ -13,6 +15,18 @@
 ![Profile Views](https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS&labelColor=ffd700)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=0A66C2&labelColor=1a1a2e)](https://linkedin.com/in/paresh-ranjan-rout-7a2788227)
 [![YouTube](https://img.shields.io/badge/YouTube-SushaAstra-1a1a2e?style=for-the-badge&logo=youtube&logoColor=FF0000&labelColor=1a1a2e)](https://youtube.com/@SushaAstraOfficial)
+
+</div>
+
+---
+
+## ✨ Live Highlights
+
+<div align="center">
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="60%"/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=PARESHRANJAN299&theme=react-dark&hide_border=true" width="100%"/>
 
 </div>
 
@@ -129,18 +143,6 @@ A structured, day-wise roadmap across SQL, Python, PySpark, AWS, Kafka, dbt, Sys
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-0f2027?style=for-the-badge&logo=raspberrypi&logoColor=00c9ff)
 ![C++](https://img.shields.io/badge/C%2B%2B-0f2027?style=for-the-badge&logo=cplusplus&logoColor=00c9ff)
 ![OpenCV](https://img.shields.io/badge/OpenCV-0f2027?style=for-the-badge&logo=opencv&logoColor=00c9ff)
-
-</div>
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="60%"/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=PARESHRANJAN299&theme=react-dark&hide_border=true" width="100%"/>
 
 </div>
 
