@@ -1,22 +1,20 @@
-<h1 align="center">Paresh Ranjan Rout</h1>
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:2c5364,100:00c9ff&height=240&section=header&text=Robotics%20%2B%20Data%20Engineering&fontSize=46&fontColor=ffd700&animation=fadeIn&fontAlignY=32&desc=Started%20from%20Zero%20%C2%B7%20Compounding%201%25%20Every%20Day&descAlignY=52&descSize=16&descAlign=50" width="100%"/>
-
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=3000&pause=1200&color=FFD700&center=true&vCenter=true&width=650&height=40&lines=Start+at+zero.+Compound+daily.;%2B1%25+today+%E2%86%92+37x+in+a+year.;Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" />
-
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=16&duration=2500&pause=800&color=00FF9C&center=true&vCenter=true&width=750&height=35&lines=E+%3D+mc%5E2+...+1.01%5E365+%3D+37.8x;for+day+in+range%28365%29%3A+skill+%2B%3D+1%25;Zero+-%3E+Code+-%3E+Machines+-%3E+World;01001101+01000001+01010100+01001000" alt="Terminal Reel" />
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:ffd700,100:00c9ff&height=3&width=800" width="60%"/>
-
-<br/><br/>
-
-![Profile Views](https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS&labelColor=ffd700)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=0A66C2&labelColor=1a1a2e)](https://linkedin.com/in/paresh-ranjan-rout-7a2788227)
-[![YouTube](https://img.shields.io/badge/YouTube-SushaAstra-1a1a2e?style=for-the-badge&logo=youtube&logoColor=FF0000&labelColor=1a1a2e)](https://youtube.com/@SushaAstraOfficial)
-
-</div>
+<table width="100%">
+    <tr>
+        <td width="32%" align="center" valign="middle">
+            <img src="paresh.jpg" alt="Paresh Ranjan Rout" width="220" />
+        </td>
+        <td width="68%" valign="middle">
+            <h1>Paresh Ranjan Rout</h1>
+            <p><strong>Data Engineering · Robotics · AI · IoT</strong><br/>Founder — SushaAstra Technology<br/>Started from zero · Compounding 1% every day</p>
+            <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=18&duration=3000&pause=1200&color=00C9FF&center=false&vCenter=true&width=560&height=42&lines=Robotics+%C2%B7+AI+%C2%B7+IoT+%C2%B7+Big+Data;Founder+%E2%80%94+SushaAstra+Technology;Start+at+zero.+Compound+daily." alt="Animated profile highlights" />
+            <p>
+                <a href="https://linkedin.com/in/paresh-ranjan-rout-7a2788227"><img src="https://img.shields.io/badge/LinkedIn-Connect-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="Connect on LinkedIn" /></a>
+                <a href="https://youtube.com/@SushaAstraOfficial"><img src="https://img.shields.io/badge/YouTube-SushaAstra-1a1a2e?style=for-the-badge&logo=youtube&logoColor=FF0000" alt="SushaAstra on YouTube" /></a>
+                <img src="https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS" alt="Profile views" />
+            </p>
+        </td>
+    </tr>
+</table>
 
 ---
 
@@ -35,8 +33,6 @@
 ## 📈 The Numbers Behind the Journey
 
 <div align="center">
-
-<img src="paresh.jpg" width="320"/>
 
 **+1% today, compounding into 37.8x** — this is what the daily grind actually builds toward.
 
