@@ -79,6 +79,21 @@ A production-style streaming pipeline that ingests live BTC-USD ticker events fr
 | **Delivery** | The pipeline, jobs and schedules are defined in a Databricks Asset Bundle (`dev` target) and deployed from the command line. |
 
 <details open>
+<summary><h4>Connections, live flow and rules</h4></summary>
+
+<div align="center">
+    <img src="./assets/project-connections.svg" alt="For each connection in the pipeline: the protocol, the security controls, the rules that govern it and how often data flows" width="100%"/>
+</div>
+
+Every hop in the architecture is a deliberate connection with its own protocol, its own access rule and its own cadence. The numbered badges on the diagram above match the rows here.
+
+- **Least privilege, split by direction.** The EC2 instance can write only under the raw prefix through an IAM role with temporary credentials, and Databricks reads that prefix through a separate read-only role. Neither side holds the other's permissions, and no access keys are stored in code.
+- **Governed, not open.** Databricks reaches S3 only through a Unity Catalog Storage Credential and External Location, so access is controlled and auditable in one place.
+- **Failure rules at every step.** Reconnect and ping on the socket, retries and a disk spool on upload, a checkpoint and quality rules in the pipeline, and retries plus email alerts on the jobs.
+
+</details>
+
+<details open>
 <summary><h4>How the streaming buffer works</h4></summary>
 
 <div align="center">
