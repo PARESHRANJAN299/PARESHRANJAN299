@@ -137,16 +137,9 @@ Small, consistent daily improvements compound. The chart below refreshes itself 
 
 ---
 
-<details open>
-<summary><h2>GitHub Activity</h2></summary>
+## GitHub Activity
 
 <div align="center">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="60%" alt="GitHub contribution streak" />
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=PARESHRANJAN299&theme=react-dark&hide_border=true" width="100%" alt="GitHub contribution activity" />
-    <br/>
-    <img src="https://github-readme-stats.vercel.app/api?username=PARESHRANJAN299&show_icons=true&theme=transparent&hide_border=true" height="170" alt="GitHub stats"/>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=PARESHRANJAN299&layout=compact&theme=transparent&hide_border=true" height="170" alt="Top languages"/>
+    <img src="https://raw.githubusercontent.com/PARESHRANJAN299/PARESHRANJAN299/output/activity.svg" alt="GitHub activity: contributions over the last year, headline stats and top languages" width="100%"/>
 </div>
-
-</details>
 

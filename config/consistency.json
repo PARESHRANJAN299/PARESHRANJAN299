@@ -1,5 +1,10 @@
 {
   "username": "PARESHRANJAN299",
   "start_date": "2026-10-04",
-  "daily_gain": 0.01
+  "daily_gain": 0.01,
+  "exclude_languages": [
+    "Jupyter Notebook",
+    "HTML",
+    "CSS"
+  ]
 }
