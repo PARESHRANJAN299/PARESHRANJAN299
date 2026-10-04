@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate assets/activity.svg, an "engineering rhythm" card built from the GitHub GraphQL API:
+"""Generate assets/activity.svg, an "activity at a glance" card built from the GitHub GraphQL API:
 weekday pattern, monthly volume, active weeks and top languages. It deliberately does not
 redraw GitHub's own contribution graph. Standard library only.
 
@@ -91,7 +91,7 @@ def build(user: dict) -> str:
     busiest = WEEKDAYS[top_wd]
     avg = r["total"] / r["active_days"] if r["active_days"] else 0
     stats = [(f'{r["total"]:,}', "Contributions, last year"),
-             (f'{r["active_weeks"]} / {r["weeks"]}', "Active weeks"),
+             (f'{r["active_weeks"]} / {r["weeks"]}', "Weeks with activity"),
              (busiest, "Busiest weekday"),
              (f"{avg:.1f}", "Avg per active day")]
     tiles = "".join(
@@ -142,7 +142,7 @@ def build(user: dict) -> str:
     today = datetime.now(timezone.utc).date().isoformat()
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
-  <title id="t">Engineering rhythm: weekday pattern, monthly volume, active weeks and top languages</title>
+  <title id="t">Activity at a glance: contributions by weekday, contributions per month, active weeks and top languages</title>
   <style>
     .bg{{fill:#0d1117}} .card{{fill:#11161d;stroke:#30363d}} .tile{{fill:#161b22;stroke:#21262d}} .track{{fill:#161b22}}
     .h{{font:700 22px {SANS};fill:#e6edf3}} .s{{font:13px {FONT};fill:#8b949e}}
@@ -157,12 +157,12 @@ def build(user: dict) -> str:
   </style>
   <rect class="bg" width="{W}" height="{H}" rx="18"/>
   <rect class="card" x="20" y="20" width="920" height="{H-40}" rx="14"/>
-  <text x="48" y="62" class="h">Engineering rhythm</text>
+  <text x="48" y="62" class="h">Activity at a glance</text>
   <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed daily</text>
   {tiles}
-  <text x="48" y="222" class="sec">WEEKDAY PATTERN</text>
+  <text x="48" y="222" class="sec">CONTRIBUTIONS BY WEEKDAY</text>
   {wd}
-  <text x="520" y="222" class="sec">MONTHLY VOLUME</text>
+  <text x="520" y="222" class="sec">CONTRIBUTIONS PER MONTH</text>
   {mo}
   <text x="48" y="{ty}" class="sec">TOP LANGUAGES · PUBLIC REPOSITORIES</text>
   {bar}{items}

@@ -137,9 +137,9 @@ Small, consistent daily improvements compound. The chart below refreshes itself 
 
 ---
 
-## Engineering Rhythm
+## Activity at a Glance
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/PARESHRANJAN299/PARESHRANJAN299/output/activity.svg" alt="Engineering rhythm: weekday pattern, monthly volume, active weeks and top languages" width="100%"/>
+    <img src="https://raw.githubusercontent.com/PARESHRANJAN299/PARESHRANJAN299/output/activity.svg" alt="Activity at a glance: contributions by weekday, contributions per month, weeks with activity and top languages" width="100%"/>
 </div>
 
