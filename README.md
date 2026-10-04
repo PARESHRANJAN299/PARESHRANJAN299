@@ -94,6 +94,27 @@ const PARESH = {
 </td>
 </tr>
 </table>
+
+<br/>
+
+<table>
+<tr>
+<td align="center" width="33%" valign="top">
+    <b>Azure Data Factory Training for DP-203</b><br/>
+    <sub>Intellipaat · Issued Dec 15, 2024</sub><br/>
+    <sub>Certificate ID <code>31679-189383-205482</code></sub>
+</td>
+<td align="center" width="33%" valign="top">
+    <b>Oracle Database 12c Administrator Certified Associate: RDBMS Concepts Literacy (Beginner)</b><br/>
+    <sub>Grow@Lenovo · Completed Jan 6, 2024</sub>
+</td>
+<td align="center" width="33%" valign="top">
+    <b>Diploma in Network Administration</b><br/>
+    <sub>Jetking (NSDC Skill Development Partner) · Jul 2019 – Oct 2021 · 572 hrs · Grade B</sub><br/>
+    <sub>Serial No. <code>1920-006104</code></sub>
+</td>
+</tr>
+</table>
 </div>
 
 </details>
