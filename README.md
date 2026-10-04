@@ -53,46 +53,44 @@ const PARESH = {
 
 ## 🛠️ Tools I build with
 
-### Data Engineering
-
-![Python](https://skillicons.dev/icons?i=python) ![PostgreSQL](https://skillicons.dev/icons?i=postgres) ![MySQL](https://skillicons.dev/icons?i=mysql) ![Apache Spark](https://img.shields.io/badge/Apache%20Spark-222?style=flat-square&logo=apachespark&logoColor=E25A1C) ![Databricks](https://img.shields.io/badge/Databricks-222?style=flat-square&logo=databricks&logoColor=FF3621) ![Delta Lake](https://img.shields.io/badge/Delta%20Lake-222?style=flat-square&logo=delta&logoColor=00ADD4) ![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-222?style=flat-square&logo=apachekafka&logoColor=white) ![dbt](https://img.shields.io/badge/dbt-222?style=flat-square&logo=dbt&logoColor=FF694B)
-
-### Cloud / Infrastructure
-
-![AWS, Azure, Docker, Linux](https://skillicons.dev/icons?i=aws,azure,docker,linux)
-
-### Development / DevOps
-
-![Git, GitHub, Bash, VS Code, Jupyter](https://skillicons.dev/icons?i=git,github,bash,vscode,jupyter) ![CI/CD](https://img.shields.io/badge/CI%2FCD-222?style=flat-square&logo=githubactions&logoColor=2088FF)
-
-### Robotics / AI
-
-![ROS](https://img.shields.io/badge/ROS-222?style=flat-square&logo=ros&logoColor=22314E) ![Arduino](https://skillicons.dev/icons?i=arduino) ![Raspberry Pi](https://skillicons.dev/icons?i=raspberrypi) ![C++](https://skillicons.dev/icons?i=cpp) ![OpenCV](https://img.shields.io/badge/OpenCV-222?style=flat-square&logo=opencv&logoColor=5C3EE8)
+<div align="center">
+<table>
+<tr>
+<td align="center" width="110"><img src="./assets/icons/python.svg" width="64" alt="Python"/><br/><sub><b>Python</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/postgres.svg" width="64" alt="PostgreSQL"/><br/><sub><b>PostgreSQL</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/mysql.svg" width="64" alt="MySQL"/><br/><sub><b>MySQL</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/spark.svg" width="64" alt="Apache Spark"/><br/><sub><b>Spark</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/databricks.svg" width="64" alt="Databricks"/><br/><sub><b>Databricks</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/kafka.svg" width="64" alt="Apache Kafka"/><br/><sub><b>Kafka</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/dbt.svg" width="64" alt="dbt"/><br/><sub><b>dbt</b></sub></td>
+</tr>
+</table>
+<table>
+<tr>
+<td align="center" width="110"><img src="./assets/icons/aws.svg" width="64" alt="AWS"/><br/><sub><b>AWS</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/azure.svg" width="64" alt="Azure"/><br/><sub><b>Azure</b></sub></td>
+</tr>
+</table>
+</div>
 
 ---
 
 <details open>
 <summary><a name="certificates"></a><h2>🎓 Certificates</h2></summary>
 
-<!--
-  HOW TO ADD A CERTIFICATE
-  1. Drop the image into assets/certificates/  (e.g. assets/certificates/databricks-fundamentals.png)
-  2. Copy one <td> block below, fix the image path, title, issuer and link.
-  3. Keep two certificates per <tr> so the grid stays tidy on mobile.
--->
-
 <div align="center">
 <table>
 <tr>
-<td align="center" width="50%">
-    <!-- <a href="CREDENTIAL_URL"><img src="./assets/certificates/CERT_1.png" width="360" alt="Certificate title"/></a><br/> -->
-    <sub><b>Certificate 1</b> · Issuer · Year</sub><br/>
-    <sub><i>Coming soon</i></sub>
+<td align="center" width="50%" valign="top">
+    <a href="./assets/certificates/oreilly-databricks-data-engineer.png"><img src="./assets/certificates/oreilly-databricks-data-engineer.png" width="400" alt="O'Reilly Databricks Data Eng Course certificate"/></a><br/>
+    <b>Databricks Data Eng Course</b><br/>
+    <sub>O'Reilly · Issued Apr 11, 2026</sub><br/>
+    <sub>Credential ID <code>270a6904-bfae-45c1-aa45-e2c4e7bdca26</code></sub>
 </td>
-<td align="center" width="50%">
-    <!-- <a href="CREDENTIAL_URL"><img src="./assets/certificates/CERT_2.png" width="360" alt="Certificate title"/></a><br/> -->
-    <sub><b>Certificate 2</b> · Issuer · Year</sub><br/>
-    <sub><i>Coming soon</i></sub>
+<td align="center" width="50%" valign="top">
+    <a href="./assets/certificates/databricks-fundamentals-accreditation.png"><img src="./assets/certificates/databricks-fundamentals-accreditation.png" width="400" alt="Databricks Fundamentals Accreditation certificate"/></a><br/>
+    <b>Databricks Fundamentals Accreditation</b><br/>
+    <sub>Databricks Academy · Completed Mar 29, 2026</sub>
 </td>
 </tr>
 </table>
@@ -134,10 +132,3 @@ My [Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-
 
 </details>
 
----
-
-<div align="center">
-    <img src="1.01x-binary-core.jpg" alt="Zero to 1%: build patiently and consistently" width="320" />
-
-    <p><strong>Start from zero. Improve 1% every day. Build patiently and consistently.</strong></p>
-</div>
