@@ -53,23 +53,40 @@ const PARESH = {
 ## Core Technologies
 
 <div align="center">
+
+<p><sub><b>LANGUAGES &amp; PROCESSING</b></sub></p>
 <table>
 <tr>
 <td align="center" width="110"><img src="./assets/icons/python.svg" width="64" alt="Python"/><br/><sub><b>Python</b></sub></td>
-<td align="center" width="110"><img src="./assets/icons/postgres.svg" width="64" alt="PostgreSQL"/><br/><sub><b>PostgreSQL</b></sub></td>
-<td align="center" width="110"><img src="./assets/icons/mysql.svg" width="64" alt="MySQL"/><br/><sub><b>MySQL</b></sub></td>
-<td align="center" width="110"><img src="./assets/icons/spark.svg" width="64" alt="Apache Spark"/><br/><sub><b>Spark</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/sql.svg" width="64" alt="SQL"/><br/><sub><b>SQL</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/spark.svg" width="64" alt="PySpark"/><br/><sub><b>PySpark</b></sub></td>
 <td align="center" width="110"><img src="./assets/icons/databricks.svg" width="64" alt="Databricks"/><br/><sub><b>Databricks</b></sub></td>
 <td align="center" width="110"><img src="./assets/icons/kafka.svg" width="64" alt="Apache Kafka"/><br/><sub><b>Kafka</b></sub></td>
 <td align="center" width="110"><img src="./assets/icons/dbt.svg" width="64" alt="dbt"/><br/><sub><b>dbt</b></sub></td>
 </tr>
 </table>
+
+<p><sub><b>DATABASES &amp; CLOUD</b></sub></p>
 <table>
 <tr>
+<td align="center" width="110"><img src="./assets/icons/postgres.svg" width="64" alt="PostgreSQL"/><br/><sub><b>PostgreSQL</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/mysql.svg" width="64" alt="MySQL"/><br/><sub><b>MySQL</b></sub></td>
 <td align="center" width="110"><img src="./assets/icons/aws.svg" width="64" alt="AWS"/><br/><sub><b>AWS</b></sub></td>
 <td align="center" width="110"><img src="./assets/icons/azure.svg" width="64" alt="Azure"/><br/><sub><b>Azure</b></sub></td>
 </tr>
 </table>
+
+<p><sub><b>DATA ENGINEERING PRACTICE</b></sub></p>
+<table>
+<tr>
+<td align="center" width="110"><img src="./assets/icons/cleaning.svg" width="64" alt="Data cleaning"/><br/><sub><b>Data Cleaning</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/etl.svg" width="64" alt="ETL pipelines"/><br/><sub><b>ETL Pipelines</b></sub></td>
+<td align="center" width="110"><img src="./assets/icons/system-design.svg" width="64" alt="System design"/><br/><sub><b>System Design</b></sub></td>
+</tr>
+</table>
+
+<sub>System design for large-scale, high-volume data pipelines.</sub>
+
 </div>
 
 ---
