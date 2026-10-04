@@ -9,7 +9,7 @@
     <a href="https://linkedin.com/in/paresh-ranjan-rout-7a2788227"><img src="https://img.shields.io/badge/-LinkedIn-1a1a2e?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn"/></a>
     <a href="https://youtube.com/@SushaAstraOfficial"><img src="https://img.shields.io/badge/-YouTube-1a1a2e?style=for-the-badge&logo=youtube&logoColor=FF0000" alt="YouTube"/></a>
     <br>
-    <img src="https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS" alt="Profile views" />
+    <img src="https://hits.sh/github.com/PARESHRANJAN299.svg?style=for-the-badge&color=1a1a2e&labelColor=1a1a2e&label=PROFILE%20VIEWS" alt="Profile views" />
 </div>
 
 ## About
@@ -123,16 +123,13 @@ const PARESH = {
 
 ---
 
-## Approach: The 1% Principle
+## Approach: Consistency Compounds
 
-I treat skill growth as compounding: small, consistent daily improvements add up. The model is `1.01^365 ≈ 37.8`. It illustrates the value of consistency, not a guaranteed outcome.
+Small, consistent daily improvements compound. The chart below refreshes itself every day through GitHub Actions. It shows my position on the 1% curve (`1.01^365 ≈ 37.8`) next to my live GitHub contribution streaks. The curve illustrates the value of consistency, not a guaranteed outcome.
 
-| Day | Daily improvement model |
-| --- | ---: |
-| 30 | 1.35x |
-| 90 | 2.45x |
-| 180 | 6.00x |
-| 365 | 37.8x |
+<div align="center">
+    <img src="https://raw.githubusercontent.com/PARESHRANJAN299/PARESHRANJAN299/output/consistency.svg" alt="Consistency chart: position on the 1% daily improvement curve and GitHub contribution streaks" width="100%"/>
+</div>
 
 <div align="center">
     <img src="paresh.jpg" alt="Paresh Ranjan Rout: the 1% improvement journey" width="280" />

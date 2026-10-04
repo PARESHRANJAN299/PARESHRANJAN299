@@ -1,0 +1,45 @@
+name: Update consistency chart
+
+on:
+  schedule:
+    - cron: "15 0 * * *"      # every day at 00:15 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate_consistency.py
+      - config/consistency.json
+      - .github/workflows/consistency.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: consistency
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate chart
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/generate_consistency.py out/consistency.svg
+
+      # The generated file goes to a separate `output` branch, so `main` stays
+      # protected and its history stays clean.
+      - name: Publish to output branch
+        working-directory: out
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add consistency.svg
+          git commit -q -m "Update consistency chart"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${REPO}.git" output
