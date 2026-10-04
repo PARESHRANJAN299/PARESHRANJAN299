@@ -158,7 +158,7 @@ def build(user: dict) -> str:
   <rect class="bg" width="{W}" height="{H}" rx="18"/>
   <rect class="card" x="20" y="20" width="920" height="{H-40}" rx="14"/>
   <text x="48" y="62" class="h">Activity at a glance</text>
-  <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed daily</text>
+  <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed every 3 hours</text>
   {tiles}
   <text x="48" y="222" class="sec">CONTRIBUTIONS BY WEEKDAY</text>
   {wd}
