@@ -134,8 +134,6 @@ I treat skill growth as compounding: small, consistent daily improvements add up
 | 180 | 6.00x |
 | 365 | 37.8x |
 
-My [Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-AI_-_Data_Engineering_25_Lakhs) tracks progress across SQL, Python, PySpark, AWS, Kafka, dbt, system design, and data structures and algorithms.
-
 <div align="center">
     <img src="paresh.jpg" alt="Paresh Ranjan Rout: the 1% improvement journey" width="280" />
 </div>
