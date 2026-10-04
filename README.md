@@ -125,7 +125,7 @@ const PARESH = {
 
 ## Approach: Consistency Compounds
 
-Small, consistent daily improvements compound. The chart below refreshes itself every day through GitHub Actions. It shows my position on the 1% curve (`1.01^365 ≈ 37.8`) next to my live GitHub contribution streaks. The curve illustrates the value of consistency, not a guaranteed outcome.
+Small, consistent daily improvements compound. The chart below refreshes itself every few hours through GitHub Actions. It shows my position on the 1% curve (`1.01^365 ≈ 37.8`) next to my live GitHub contribution streaks. The curve illustrates the value of consistency, not a guaranteed outcome.
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/PARESHRANJAN299/PARESHRANJAN299/output/consistency.svg" alt="Consistency chart: position on the 1% daily improvement curve and GitHub contribution streaks" width="100%"/>

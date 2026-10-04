@@ -2,7 +2,7 @@ name: Update profile charts
 
 on:
   schedule:
-    - cron: "15 0 * * *"      # every day at 00:15 UTC
+    - cron: "10 */3 * * *"    # every 3 hours (GitHub may delay scheduled runs by a few minutes)
   workflow_dispatch:
   push:
     branches: [main]
