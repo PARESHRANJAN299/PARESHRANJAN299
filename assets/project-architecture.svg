@@ -107,5 +107,5 @@
   <circle class="pulse" cx="48" cy="584" r="4" fill="#3fb950"/>
   <text class="edge" x="60" y="588">live · Coinbase → S3 → Bronze → Silver</text>
   <text class="edge dim" x="380" y="588">dashed = planned</text>
-  <text class="edge" x="912" y="588" text-anchor="end">numbers = see Connections, live flow and rules</text>
+  <text class="edge" x="912" y="588" text-anchor="end">numbers = connections, detailed in the repository docs</text>
 </svg>
