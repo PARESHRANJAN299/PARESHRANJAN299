@@ -7,7 +7,7 @@
       .next{fill:#12161c;stroke:#3d444d;stroke-width:1.5;stroke-dasharray:6 5}
       .zlab{font:600 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e;letter-spacing:2px}
       .title{font:700 17px "Segoe UI",Helvetica,Arial,sans-serif;fill:#e6edf3}
-      .sub{font:12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e}
+      .sub{font:11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8b949e}
       .edge{font:11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#7d8590}
       .flow{fill:none;stroke:#3d444d;stroke-width:2}
       .run{fill:none;stroke:#58a6ff;stroke-width:2;stroke-dasharray:6 8;animation:dash 1.2s linear infinite}

@@ -50,13 +50,22 @@ const PARESH = {
 
 ---
 
-## Featured Project
+## Projects
+
+Each project expands to show its architecture, what I built and the technology behind it.
+
+<!-- To add a project: add a row at the bottom of this table, then copy the project 1 <details> block below. -->
+
+| # | Project | What it does | Technology |
+| :-: | --- | --- | --- |
+| 1 | [data-engineering-devops-stack](#project-1) | Streams live market data into a Databricks lakehouse, with scheduling, monitoring and deployment as code | Python · AWS EC2, S3, IAM · Databricks · Delta Lake · Unity Catalog · Auto Loader · PySpark |
+
+<details open>
+<summary><a name="project-1"></a><h3>1 · data-engineering-devops-stack: real-time pipeline on Databricks and AWS</h3></summary>
 
 <div align="center">
-    <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack"><img src="./assets/project-architecture.svg" alt="Animated architecture of data-engineering-devops-stack: Coinbase WebSocket to EC2 to S3 to Databricks Auto Loader to Bronze and Silver, with an Asset Bundle deployment, a scheduled job and a health check" width="100%"/></a>
+    <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack"><img src="./assets/project-architecture.svg" alt="Animated architecture: Coinbase WebSocket to EC2 to S3 to Databricks Auto Loader to Bronze and Silver, with an Asset Bundle deployment, a scheduled job and a health check" width="100%"/></a>
 </div>
-
-### data-engineering-devops-stack
 
 A production-style streaming pipeline that ingests live BTC-USD ticker events from Coinbase into a Databricks lakehouse. Data lands in S3, is loaded incrementally into Bronze and Silver Delta tables every 15 minutes, and is deployed as code with a Databricks Asset Bundle. Every phase is documented with the commands, the issues faced, the root cause and the fix.
 
@@ -69,12 +78,70 @@ A production-style streaming pipeline that ingests live BTC-USD ticker events fr
 | **Operations** | A Databricks job runs the pipeline every 15 minutes with retries and failure email. A separate health-check job alerts if the consumer stops writing to S3. |
 | **Delivery** | The pipeline, jobs and schedules are defined in a Databricks Asset Bundle (`dev` target) and deployed from the command line. |
 
+<details open>
+<summary><h4>How the streaming buffer works</h4></summary>
+
+<div align="center">
+    <img src="./assets/project-buffer.svg" alt="Animated diagram of the streaming buffer: ticker events fill an in-memory buffer for 15 seconds, then one JSON file is flushed to S3, with a disk spool if the upload fails" width="100%"/>
+</div>
+
+1. **Receive.** The WebSocket client gets a JSON message for every BTC-USD ticker update and keeps the ticker events.
+2. **Buffer.** Events collect in a Python list in memory. The list is capped at 50,000 events, and the oldest are dropped if it ever fills.
+3. **Flush.** When a message arrives and at least 15 seconds have passed since the last flush, the buffer is written out as **one JSON-lines file** and emptied. The check runs on each message, so there is no separate timer thread.
+4. **Upload.** `boto3` puts the file in S3 under `coinbase/raw/YYYY/MM/DD/HH/`, using the EC2 IAM role, with up to 5 attempts and a growing wait between them.
+5. **If S3 is unreachable,** the file is saved to a local spool folder so the buffer cannot grow forever. Spooled files are uploaded after the next successful flush and again at startup.
+6. **Stay alive.** A dropped connection triggers a reconnect with backoff from 1 to 60 seconds, a ping every 20 seconds detects silent failures, and a stop signal triggers a final flush. systemd restarts the service if it exits.
+7. **Hand off.** Each new file is picked up by Auto Loader into Bronze on the next 15-minute job run.
+
+</details>
+
+<details open>
+<summary><h4>Scale-up path: from startup scale to large scale</h4></summary>
+
+<div align="center">
+    <img src="./assets/project-scale-up.svg" alt="Animated comparison: today's EC2 consumer to S3 design for startup scale, and the recommended large-scale design with Kinesis Data Streams and Amazon Data Firehose" width="100%"/>
+</div>
+
+This build is designed for **startup scale**: a single stream and modest volume, with the lowest cost and the least to operate. It is not meant for large scale. One consumer is a single point of failure, one connection caps throughput, the in-memory buffer is lost if the process is killed without a stop signal, and scaling means managing servers.
+
+| Stage | Architecture | Use it when |
+| --- | --- | --- |
+| **1. Today** | Source → one EC2 consumer → S3 → Auto Loader → Bronze and Silver | One stream, modest volume, small team |
+| **2. Harden** | Same flow, with the consumer in a container on ECS Fargate (image stored in ECR), automatic restarts and CloudWatch alarms | Still one stream, but you want automated deploys and no server to look after |
+| **3. Large scale** | Producers → **Kinesis Data Streams** → **Amazon Data Firehose** → S3 → Auto Loader → Bronze, Silver, Gold | High volume, many sources, replay and availability requirements |
+
+**Why Kinesis and Firehose at scale.** Kinesis Data Streams scales with shards, keeps data for replay and lets several consumers read the same stream. Firehose then takes over what the Python consumer does by hand: buffering by size or time, retrying, optional transformation, and writing partitioned files to S3. The Databricks side stays almost the same, which is why the Bronze and Silver design here carries over. For seconds-level latency, Databricks can read from Kinesis directly instead of waiting for files.
+
+**What I would keep.** Raw Bronze, Silver deduplication on a key (streams deliver at least once), data-quality expectations, Asset Bundle deployment and the freshness alert.
+
+**When to move up.** Move off the single consumer when it can no longer keep up, when more sources or consumers appear, or when you need guaranteed replay or higher availability. For one ticker, Kinesis would add cost and moving parts without a benefit. Check current AWS limits and pricing before sizing.
+
+</details>
+
+<table>
+<tr>
+<td><b>Built with</b></td>
+<td align="center" width="84"><img src="./assets/icons/python.svg" width="48" alt="Python"/><br/><sub>Python</sub></td><td align="center" width="84"><img src="./assets/icons/aws.svg" width="48" alt="AWS"/><br/><sub>AWS</sub></td><td align="center" width="84"><img src="./assets/icons/databricks.svg" width="48" alt="Databricks"/><br/><sub>Databricks</sub></td><td align="center" width="84"><img src="./assets/icons/spark.svg" width="48" alt="PySpark"/><br/><sub>PySpark</sub></td><td align="center" width="84"><img src="./assets/icons/sql.svg" width="48" alt="SQL"/><br/><sub>SQL</sub></td>
+</tr>
+</table>
+
+Python, AWS (EC2, S3, IAM), `systemd`, Databricks Asset Bundles, Unity Catalog, Auto Loader, Lakeflow pipelines, Delta Lake, PySpark and SQL.
+
 **Status:** ingestion, Bronze, Silver, scheduling and monitoring are complete. Gold transformations, a data-quality framework and GitHub Actions CI/CD are next.
 
 <div align="center">
     <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack"><img src="https://img.shields.io/badge/-View%20repository-1a1a2e?style=for-the-badge&logo=github&logoColor=white" alt="View repository"/></a>
     <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack/blob/main/05-databricks-asset-bundle.md"><img src="https://img.shields.io/badge/-Read%20the%20build%20write--up-1a1a2e?style=for-the-badge&logo=readme&logoColor=58a6ff" alt="Read the build write-up"/></a>
 </div>
+
+</details>
+
+<!--
+  TO ADD ANOTHER PROJECT
+  1. Add a row to the table above.
+  2. Copy the whole <details> block for project 1, then change the number, name, diagram, description and technology.
+  3. Put its images in assets/ and keep <details> without "open" so only project 1 starts expanded.
+-->
 
 ---
 
