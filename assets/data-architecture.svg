@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500" role="img" aria-labelledby="t d">
+  <title id="t">Data architecture</title>
+  <desc id="d">Data from APIs and streams is ingested by Python consumers on AWS, lands in S3, and is loaded by Databricks Auto Loader into Bronze, Silver and Gold Delta layers.</desc>
+  <defs>
+    <style>
+      .bg    { fill: #0d1117; }
+      .zone  { fill: #11161d; stroke: #30363d; stroke-width: 1; }
+      .zlab  { font: 600 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #8b949e; letter-spacing: 2px; }
+      .node  { fill: #161b22; stroke: #30363d; stroke-width: 1.5; }
+      .next  { fill: #12161c; stroke: #3d444d; stroke-width: 1.5; stroke-dasharray: 6 5; }
+      .title { font: 700 17px "Segoe UI", Helvetica, Arial, sans-serif; fill: #e6edf3; }
+      .sub   { font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #8b949e; }
+      .edge  { font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #7d8590; }
+      .flow  { fill: none; stroke: #3d444d; stroke-width: 2; }
+      .run   { fill: none; stroke: #58a6ff; stroke-width: 2; stroke-dasharray: 6 8; animation: dash 1.2s linear infinite; }
+      .runX  { fill: none; stroke: #3d444d; stroke-width: 2; stroke-dasharray: 3 7; }
+      .halo  { fill: none; stroke: #cd7f32; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: halo 2.4s ease-out infinite; }
+      .pulse { animation: blink 1.6s ease-in-out infinite; }
+      .dim   { opacity: .55; }
+      @keyframes dash  { to { stroke-dashoffset: -28; } }
+      @keyframes halo  { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.12, 1.35); } }
+      @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+      @media (prefers-reduced-motion: reduce) { .run, .halo, .pulse { animation: none; } }
+    </style>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect class="bg" width="960" height="500" rx="18"/>
+
+  <!-- ZONES -->
+  <rect class="zone" x="20" y="20" width="920" height="170" rx="14"/>
+  <text class="zlab" x="40" y="44">INGEST  ·  SOURCES + AWS</text>
+  <rect class="zone" x="20" y="262" width="920" height="198" rx="14"/>
+  <text class="zlab" x="40" y="286">LAKEHOUSE  ·  DATABRICKS + UNITY CATALOG</text>
+
+  <!-- CONNECTOR PATHS -->
+  <path id="e1" class="flow" d="M250,122 H380"/>
+  <path id="e2" class="flow" d="M580,122 H710"/>
+  <path id="e3" class="flow" d="M810,164 V226 H114 V324"/>
+  <path id="e4" class="flow" d="M192,366 H282"/>
+  <path id="e5" class="flow" d="M438,366 H528"/>
+  <path id="e6" class="flow" d="M684,366 H774"/>
+
+  <!-- animated dashes on live edges -->
+  <path class="run" d="M250,122 H380"/>
+  <path class="run" d="M580,122 H710"/>
+  <path class="run" d="M810,164 V226 H114 V324"/>
+  <path class="run" d="M192,366 H282"/>
+  <path class="run" d="M438,366 H528"/>
+  <path class="run" d="M684,366 H774"/>
+
+  <!-- EDGE LABELS -->
+  <text class="edge" x="315" y="112" text-anchor="middle">stream</text>
+  <text class="edge" x="645" y="112" text-anchor="middle">boto3 · IAM role</text>
+  <text class="edge" x="480" y="216" text-anchor="middle">Storage Credential + External Location</text>
+  <text class="edge" x="237" y="356" text-anchor="middle">cloudFiles</text>
+  <text class="edge" x="483" y="356" text-anchor="middle">append</text>
+  <text class="edge" x="729" y="356" text-anchor="middle">conform</text>
+
+  <!-- NODES: ingest -->
+  <g>
+    <rect class="node" x="50" y="80" width="200" height="84" rx="12"/>
+    <rect x="50" y="98" width="5" height="48" rx="2.5" fill="#1652f0"/>
+    <text class="title" x="74" y="115">Sources</text>
+    <text class="sub" x="74" y="136">APIs · streams · files</text>
+  </g>
+  <g>
+    <rect class="node" x="380" y="80" width="200" height="84" rx="12"/>
+    <rect x="380" y="98" width="5" height="48" rx="2.5" fill="#ff9900"/>
+    <text class="title" x="404" y="115">Ingestion</text>
+    <text class="sub" x="404" y="136">Python · EC2 · buffering</text>
+  </g>
+  <g>
+    <rect class="node" x="710" y="80" width="200" height="84" rx="12"/>
+    <rect x="710" y="98" width="5" height="48" rx="2.5" fill="#ff9900"/>
+    <text class="title" x="734" y="115">Amazon S3</text>
+    <text class="sub" x="734" y="136">raw landing zone</text>
+  </g>
+
+  <!-- NODES: lakehouse -->
+  <g>
+    <rect class="node" x="36" y="324" width="156" height="84" rx="12"/>
+    <rect x="36" y="342" width="5" height="48" rx="2.5" fill="#ff3621"/>
+    <text class="title" x="60" y="359">Auto Loader</text>
+    <text class="sub" x="60" y="380">Lakeflow · serverless</text>
+  </g>
+  <g>
+    <rect class="halo" x="282" y="324" width="156" height="84" rx="12"/>
+    <rect class="node" x="282" y="324" width="156" height="84" rx="12" style="stroke:#cd7f32"/>
+    <rect x="282" y="342" width="5" height="48" rx="2.5" fill="#cd7f32"/>
+    <text class="title" x="306" y="359">Bronze</text>
+    <text class="sub" x="306" y="380">Delta · raw</text>
+  </g>
+  <g>
+    <rect class="node" x="528" y="324" width="156" height="84" rx="12"/>
+    <rect x="528" y="342" width="5" height="48" rx="2.5" fill="#c0c0c0"/>
+    <text class="title" x="552" y="359">Silver</text>
+    <text class="sub" x="552" y="380">Delta · cleaned</text>
+  </g>
+  <g>
+    <rect class="node" x="774" y="324" width="156" height="84" rx="12"/>
+    <rect x="774" y="342" width="5" height="48" rx="2.5" fill="#ffd700"/>
+    <text class="title" x="798" y="359">Gold</text>
+    <text class="sub" x="798" y="380">Delta · curated</text>
+  </g>
+
+  <!-- DATA PACKETS (follow the edges) -->
+  <g filter="url(#glow)" fill="#58a6ff">
+    <circle r="4.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0s"><mpath href="#e1"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.9s"><mpath href="#e1"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.3s"><mpath href="#e2"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.8s" repeatCount="indefinite" begin="1.2s"><mpath href="#e2"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="4s" repeatCount="indefinite" begin="0s"><mpath href="#e3"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="4s" repeatCount="indefinite" begin="2s"><mpath href="#e3"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath href="#e4"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath href="#e5"/></animateMotion></circle>
+    <circle r="4.5"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath href="#e6"/></animateMotion></circle>
+  </g>
+
+  <!-- STATUS PILLS -->
+  <g class="pulse">
+    <circle cx="48" cy="482" r="4" fill="#3fb950"/>
+  </g>
+  <text class="edge" x="60" y="486">streaming · incremental · governed</text>
+  <text class="edge" x="912" y="486" text-anchor="end">@PARESHRANJAN299</text>
+</svg>
