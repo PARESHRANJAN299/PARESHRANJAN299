@@ -50,6 +50,34 @@ const PARESH = {
 
 ---
 
+## Featured Project
+
+<div align="center">
+    <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack"><img src="./assets/project-architecture.svg" alt="Animated architecture of data-engineering-devops-stack: Coinbase WebSocket to EC2 to S3 to Databricks Auto Loader to Bronze and Silver, with an Asset Bundle deployment, a scheduled job and a health check" width="100%"/></a>
+</div>
+
+### data-engineering-devops-stack
+
+A production-style streaming pipeline that ingests live BTC-USD ticker events from Coinbase into a Databricks lakehouse. Data lands in S3, is loaded incrementally into Bronze and Silver Delta tables every 15 minutes, and is deployed as code with a Databricks Asset Bundle. Every phase is documented with the commands, the issues faced, the root cause and the fix.
+
+| Layer | What I built |
+| --- | --- |
+| **Ingestion** | Python WebSocket consumer on AWS EC2, run as a `systemd` service. It buffers events, writes one JSON batch per flush to S3 with `boto3` using an IAM role (no stored access keys), reconnects with backoff, retries uploads and spools to disk if S3 is unavailable. |
+| **Governed access** | Unity Catalog Storage Credential and External Location give Databricks controlled access to the raw S3 data. |
+| **Bronze** | Auto Loader (`cloudFiles`) in a serverless Lakeflow pipeline appends raw events to a Delta table, adding the source file and ingestion timestamp. |
+| **Silver** | Parses the nested JSON, flattens it to one row per price update, casts to `DECIMAL` and `TIMESTAMP`, enforces four data-quality expectations and removes duplicates. |
+| **Operations** | A Databricks job runs the pipeline every 15 minutes with retries and failure email. A separate health-check job alerts if the consumer stops writing to S3. |
+| **Delivery** | The pipeline, jobs and schedules are defined in a Databricks Asset Bundle (`dev` target) and deployed from the command line. |
+
+**Status:** ingestion, Bronze, Silver, scheduling and monitoring are complete. Gold transformations, a data-quality framework and GitHub Actions CI/CD are next.
+
+<div align="center">
+    <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack"><img src="https://img.shields.io/badge/-View%20repository-1a1a2e?style=for-the-badge&logo=github&logoColor=white" alt="View repository"/></a>
+    <a href="https://github.com/PARESHRANJAN299/data-engineering-devops-stack/blob/main/05-databricks-asset-bundle.md"><img src="https://img.shields.io/badge/-Read%20the%20build%20write--up-1a1a2e?style=for-the-badge&logo=readme&logoColor=58a6ff" alt="Read the build write-up"/></a>
+</div>
+
+---
+
 ## Core Technologies
 
 <div align="center">
