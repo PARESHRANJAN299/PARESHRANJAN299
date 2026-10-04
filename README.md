@@ -20,7 +20,7 @@
             <img src="profile-code-portrait.png" alt="Black-and-white code portrait of Paresh Ranjan Rout" width="220" />
         </td>
         <td width="70%" valign="middle">
-            <p>I'm a <strong>Data Engineer in the making</strong> and the founder of <strong>SushaAstra Technology</strong>, working across Data Engineering, Robotics, AI, and IoT. I learn by building real systems end to end, keeping the scope practical, and documenting what I learn, including the issues I hit and how I fixed them.</p>
+            <p>I'm a <strong>Data Engineer in the making</strong> and the founder of <strong>SushaAstra Technology</strong>, working across Data Engineering, AI, and IoT. I learn by building real systems end to end, keeping the scope practical, and documenting what I learn, including the issues I hit and how I fixed them.</p>
             <p>My focus is the lakehouse stack: ingesting raw data into cloud storage, then shaping it through Bronze, Silver, and Gold layers on Databricks.</p>
         </td>
     </tr>
@@ -29,7 +29,7 @@
 ```javascript
 const PARESH = {
     role: "Data Engineer (in the making) · Founder, SushaAstra Technology",
-    focus: ["Data Engineering", "Robotics", "AI", "IoT"],
+    focus: ["Data Engineering", "AI", "IoT"],
     languages: {
         daily: ["Python", "SQL"],
         learning: ["PySpark", "Bash", "C++"]
@@ -45,7 +45,6 @@ const PARESH = {
         also: ["Azure", "Docker", "Linux"]
     },
     devOps: ["Git", "GitHub", "uv", "GitHub Actions (planned)"],
-    robotics: ["ROS", "Arduino", "Raspberry Pi", "OpenCV"],
 };
 ```
 
