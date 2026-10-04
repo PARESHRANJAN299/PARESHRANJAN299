@@ -2,7 +2,7 @@
     <img src="./assets/data-architecture.svg" alt="Animated data architecture: sources to ingestion to S3 to Databricks Auto Loader to Bronze, Silver and Gold" width="100%"/>
     <br/>
     <br/>
-    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=2500&pause=1200&color=58A6FF&center=true&vCenter=true&width=700&height=50&lines=Hi%2C+I'm+Paresh+Ranjan+Rout;Building+real-time+data+pipelines;Databricks+%C2%B7+AWS+%C2%B7+Python+%C2%B7+Delta+Lake;Founder+%E2%80%94+SushaAstra+Technology" alt="Typing SVG" /></a>
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2500&pause=1200&color=58A6FF&center=true&vCenter=true&width=760&height=50&lines=Paresh+Ranjan+Rout;Data+Engineer;Databricks+%C2%B7+AWS+%C2%B7+Azure+%C2%B7+Python+%C2%B7+SQL;Founder%2C+SushaAstra+Technology" alt="Paresh Ranjan Rout, Data Engineer" /></a>
 </div>
 
 <div align="center">
@@ -12,28 +12,27 @@
     <img src="https://komarev.com/ghpvc/?username=PARESHRANJAN299&color=1a1a2e&style=for-the-badge&label=PROFILE%20VIEWS" alt="Profile views" />
 </div>
 
-## 👋 A little about me...
+## About
 
 <table width="100%">
     <tr>
-        <td width="30%" align="center" valign="middle">
-            <img src="profile-code-portrait.png" alt="Black-and-white code portrait of Paresh Ranjan Rout" width="220" />
+        <td width="28%" align="center" valign="middle">
+            <img src="./assets/profile.png" alt="Paresh Ranjan Rout" width="200" />
         </td>
-        <td width="70%" valign="middle">
-            <p>I'm a <strong>Data Engineer in the making</strong> and the founder of <strong>SushaAstra Technology</strong>, working across Data Engineering, AI, and IoT. I learn by building real systems end to end, keeping the scope practical, and documenting what I learn, including the issues I hit and how I fixed them.</p>
-            <p>My focus is the lakehouse stack: ingesting raw data into cloud storage, then shaping it through Bronze, Silver, and Gold layers on Databricks.</p>
+        <td width="72%" valign="middle">
+            <h3>Paresh Ranjan Rout</h3>
+            <p><strong>Data Engineer</strong> · Founder, SushaAstra Technology</p>
+            <p>I design and build cloud data pipelines on Databricks and AWS, taking data from raw ingestion through governed Bronze, Silver, and Gold layers. My work emphasizes reliable incremental ingestion, secure access control, and clear technical documentation.</p>
+            <p><strong>Core areas:</strong> Databricks lakehouse, Delta Lake, Unity Catalog, Python, SQL, AWS, and Azure.</p>
         </td>
     </tr>
 </table>
 
 ```javascript
 const PARESH = {
-    role: "Data Engineer (in the making) · Founder, SushaAstra Technology",
+    role: "Data Engineer · Founder, SushaAstra Technology",
     focus: ["Data Engineering", "AI", "IoT"],
-    languages: {
-        daily: ["Python", "SQL"],
-        learning: ["PySpark", "Bash", "C++"]
-    },
+    languages: ["Python", "SQL", "PySpark", "Bash"],
     dataEngineering: {
         lakehouse: ["Databricks", "Delta Lake", "Unity Catalog", "Auto Loader", "Lakeflow Pipelines"],
         architecture: ["Bronze / Silver / Gold (medallion)", "Incremental ingestion", "Streaming events"],
@@ -41,16 +40,17 @@ const PARESH = {
         deployment: ["Databricks Asset Bundles"]
     },
     cloud: {
-        aws: ["EC2", "S3", "IAM roles (no access keys)"],
-        also: ["Azure", "Docker", "Linux"]
+        aws: ["EC2", "S3", "IAM"],
+        azure: ["Azure Data Factory"],
+        also: ["Docker", "Linux"]
     },
-    devOps: ["Git", "GitHub", "uv", "GitHub Actions (planned)"],
+    tooling: ["Git", "GitHub", "uv"],
 };
 ```
 
 ---
 
-## 🛠️ Tools I build with
+## Core Technologies
 
 <div align="center">
 <table>
@@ -75,7 +75,7 @@ const PARESH = {
 ---
 
 <details open>
-<summary><a name="certificates"></a><h2>🎓 Certificates</h2></summary>
+<summary><a name="certificates"></a><h2>Certifications</h2></summary>
 
 <div align="center">
 <table>
@@ -123,9 +123,9 @@ const PARESH = {
 
 ---
 
-## ♟️ The 1% Principle
+## Approach: The 1% Principle
 
-I use chess as a reminder that steady practice compounds. The model is simple: `1.01^365 ≈ 37.8`. It is a metaphor for consistency, not a promise of results.
+I treat skill growth as compounding: small, consistent daily improvements add up. The model is `1.01^365 ≈ 37.8`. It illustrates the value of consistency, not a guaranteed outcome.
 
 | Day | Daily improvement model |
 | --- | ---: |
@@ -134,8 +134,6 @@ I use chess as a reminder that steady practice compounds. The model is simple: `
 | 180 | 6.00x |
 | 365 | 37.8x |
 
-My [Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-AI_-_Data_Engineering_25_Lakhs) tracks the work across SQL, Python, PySpark, AWS, Kafka, dbt, System Design, and DSA.
-
 <div align="center">
     <img src="paresh.jpg" alt="Paresh Ranjan Rout: the 1% improvement journey" width="280" />
 </div>
@@ -143,7 +141,7 @@ My [Transformation Plan](https://github.com/PARESHRANJAN299/TRANSFORMATION-PLAN-
 ---
 
 <details open>
-<summary><h2>📊 GitHub Activity</h2></summary>
+<summary><h2>GitHub Activity</h2></summary>
 
 <div align="center">
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=PARESHRANJAN299&theme=react&hide_border=true" width="60%" alt="GitHub contribution streak" />
