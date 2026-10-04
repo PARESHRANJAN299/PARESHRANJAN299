@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./assets/data-architecture.svg" alt="Animated data architecture: sources to ingestion to S3 to Databricks Auto Loader to Bronze, Silver and Gold" width="100%"/>
+    <img src="./assets/data-platform.svg" alt="Large-scale data platform reference architecture: sources, ingestion, lakehouse with raw, bronze, silver and gold, processing and serving, with orchestration, data quality, governance, security, observability and CI/CD across every stage" width="100%"/>
     <br/>
     <br/>
     <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2500&pause=1200&color=58A6FF&center=true&vCenter=true&width=760&height=50&lines=Paresh+Ranjan+Rout;Data+Engineer;Databricks+%C2%B7+AWS+%C2%B7+Azure+%C2%B7+Python+%C2%B7+SQL;Founder%2C+SushaAstra+Technology" alt="Paresh Ranjan Rout, Data Engineer" /></a>
