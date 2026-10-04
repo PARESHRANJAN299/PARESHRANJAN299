@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Generate assets/activity.svg: contribution heatmap, headline stats and top languages,
-all pulled live from the GitHub GraphQL API. Standard library only.
+"""Generate assets/activity.svg, an "engineering rhythm" card built from the GitHub GraphQL API:
+weekday pattern, monthly volume, active weeks and top languages. It deliberately does not
+redraw GitHub's own contribution graph. Standard library only.
 
 Env:
   GITHUB_TOKEN  required (the workflow's built-in token is enough for public data)
@@ -16,21 +17,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "config" / "consistency.json").read_text())
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "assets" / "activity.svg"
-EXCLUDE = set(CFG.get("exclude_languages", ["Jupyter Notebook"]))
+EXCLUDE = set(CFG.get("exclude_languages", ["Jupyter Notebook", "HTML", "CSS"]))
 TOP_N = 6
 
 QUERY = """query($u:String!){user(login:$u){
-  repositories(first:100,ownerAffiliations:OWNER,isFork:false,privacy:PUBLIC){totalCount
+  repositories(first:100,ownerAffiliations:OWNER,isFork:false,privacy:PUBLIC){
     nodes{languages(first:8,orderBy:{field:SIZE,direction:DESC}){edges{size node{name color}}}}}
-  pullRequests{totalCount}
-  contributionsCollection{totalCommitContributions
-    contributionCalendar{totalContributions weeks{contributionDays{date contributionCount contributionLevel}}}}
+  contributionsCollection{contributionCalendar{totalContributions
+    weeks{contributionDays{date contributionCount}}}}
 }}"""
-LEVEL = {"NONE": "#161b22", "FIRST_QUARTILE": "#12304f", "SECOND_QUARTILE": "#1b5a9c",
-         "THIRD_QUARTILE": "#2f81d8", "FOURTH_QUARTILE": "#79c0ff"}
 
 FONT = 'ui-monospace,SFMono-Regular,Menlo,Consolas,monospace'
 SANS = '"Segoe UI",Helvetica,Arial,sans-serif'
+BAR, BAR_HI = "#2f81d8", "#79c0ff"
+WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
 def fetch(username: str, token: str) -> dict:
@@ -64,77 +64,106 @@ def languages(user: dict):
     return top
 
 
-def build(user: dict) -> str:
+def rhythm(user: dict):
     cal = user["contributionsCollection"]["contributionCalendar"]
-    weeks = cal["weeks"]
-    stats = [
-        (f'{cal["totalContributions"]:,}', "Contributions, last year"),
-        (f'{user["contributionsCollection"]["totalCommitContributions"]:,}', "Commits"),
-        (f'{user["pullRequests"]["totalCount"]:,}', "Pull requests"),
-        (f'{user["repositories"]["totalCount"]:,}', "Public repositories"),
-    ]
-    W, H = 960, 520
+    by_wd, by_month = [0] * 7, defaultdict(int)
+    active_weeks = active_days = total = 0
+    for w in cal["weeks"]:
+        week_sum = 0
+        for d in w["contributionDays"]:
+            dt, n = date.fromisoformat(d["date"]), d["contributionCount"]
+            by_wd[dt.weekday()] += n
+            by_month[(dt.year, dt.month)] += n
+            week_sum += n
+            active_days += n > 0
+            total += n
+        active_weeks += week_sum > 0
+    months = sorted(by_month)[-12:]
+    return {"total": cal["totalContributions"], "weeks": len(cal["weeks"]), "active_weeks": active_weeks,
+            "active_days": active_days, "by_wd": by_wd,
+            "months": [(date(y, m, 1).strftime("%b"), by_month[(y, m)]) for y, m in months]}
+
+
+def build(user: dict) -> str:
+    r = rhythm(user)
+    W, H = 960, 612
+    top_wd = max(range(7), key=lambda i: r["by_wd"][i])      # first one wins a tie
+    busiest = WEEKDAYS[top_wd]
+    avg = r["total"] / r["active_days"] if r["active_days"] else 0
+    stats = [(f'{r["total"]:,}', "Contributions, last year"),
+             (f'{r["active_weeks"]} / {r["weeks"]}', "Active weeks"),
+             (busiest, "Busiest weekday"),
+             (f"{avg:.1f}", "Avg per active day")]
     tiles = "".join(
-        f'<rect x="{48 + i*219}" y="92" width="205" height="76" rx="10" class="tile"/>'
-        f'<text x="{64 + i*219}" y="130" class="big">{v}</text>'
-        f'<text x="{64 + i*219}" y="153" class="lab">{k}</text>'
+        f'<rect x="{48 + i*219}" y="100" width="205" height="76" rx="10" class="tile"/>'
+        f'<text x="{64 + i*219}" y="138" class="big">{v}</text>'
+        f'<text x="{64 + i*219}" y="161" class="lab">{k}</text>'
         for i, (v, k) in enumerate(stats))
 
-    # heatmap
-    X0, Y0, CELL, GAP = 74, 226, 12, 3
-    cells, months, last_m = [], [], None
-    for wi, w in enumerate(weeks):
-        days = w["contributionDays"]
-        m = date.fromisoformat(days[0]["date"]).strftime("%b")
-        if m != last_m and wi < len(weeks) - 2:
-            months.append(f'<text x="{X0 + wi*(CELL+GAP)}" y="{Y0-10}" class="axis">{m}</text>')
-            last_m = m
-        for d in days:
-            wd = date.fromisoformat(d["date"]).isoweekday() % 7      # Sunday = 0
-            cells.append(
-                f'<rect x="{X0 + wi*(CELL+GAP)}" y="{Y0 + wd*(CELL+GAP)}" width="{CELL}" height="{CELL}" rx="2.5" '
-                f'fill="{LEVEL.get(d["contributionLevel"], LEVEL["NONE"])}" class="c" style="animation-delay:{wi*18}ms">'
-                f'<title>{d["contributionCount"]} on {d["date"]}</title></rect>')
-    dow = "".join(f'<text x="{X0-10}" y="{Y0 + i*(CELL+GAP) + 10}" text-anchor="end" class="axis">{n}</text>'
-                  for i, n in ((1, "Mon"), (3, "Wed"), (5, "Fri")))
-    ly = Y0 + 7 * (CELL + GAP) + 18
-    legend = (f'<text x="{X0}" y="{ly}" class="lab">Less</text>' +
-              "".join(f'<rect x="{X0 + 34 + i*17}" y="{ly-10}" width="12" height="12" rx="2.5" fill="{c}"/>'
-                      for i, c in enumerate(LEVEL.values())) +
-              f'<text x="{X0 + 34 + 5*17 + 4}" y="{ly}" class="lab">More</text>')
+    # weekday pattern: horizontal bars
+    wmax = max(r["by_wd"]) or 1
+    wtot = sum(r["by_wd"]) or 1
+    wd = ""
+    for i, n in enumerate(r["by_wd"]):
+        y = 248 + i * 29
+        w = 250 * n / wmax
+        col = BAR_HI if i == top_wd else BAR
+        wd += (f'<text x="48" y="{y+13}" class="lab2">{WEEKDAYS[i]}</text>'
+               f'<rect x="92" y="{y}" width="250" height="18" rx="4" class="track"/>'
+               f'<rect x="92" y="{y}" width="{max(w,2):.1f}" height="18" rx="4" fill="{col}" class="grow" '
+               f'style="animation-delay:{i*60}ms"/>'
+               f'<text x="456" y="{y+13}" text-anchor="end" class="lab">{n} · {n/wtot*100:.0f}%</text>')
+
+    # monthly volume: vertical bars
+    mmax = max((n for _, n in r["months"]), default=1) or 1
+    mo, base, top = "", 424, 262
+    for i, (m, n) in enumerate(r["months"]):
+        x = 520 + i * 33
+        h = (base - top) * n / mmax
+        col = BAR_HI if n == mmax else BAR
+        mo += (f'<rect x="{x}" y="{base-max(h,2):.1f}" width="24" height="{max(h,2):.1f}" rx="4" fill="{col}" '
+               f'class="rise" style="animation-delay:{i*50}ms"/>'
+               f'<text x="{x+12}" y="{base-max(h,2)-6:.1f}" text-anchor="middle" class="axis">{n}</text>'
+               f'<text x="{x+12}" y="{base+18}" text-anchor="middle" class="axis">{m}</text>')
 
     # languages
     langs = languages(user)
-    ty = ly + 44
+    ty = 478
     bar, x = "", 48.0
-    for i, (n, p, c) in enumerate(langs):
+    for n, p, c in langs:
         w = 864 * p / 100
         bar += f'<rect x="{x:.1f}" y="{ty+14}" width="{max(w-2,1):.1f}" height="10" fill="{c}"/>'
         x += w
     items = "".join(
-        f'<circle cx="{54 + (i%3)*288}" cy="{ty+52 + (i//3)*26}" r="5" fill="{c}"/>'
-        f'<text x="{68 + (i%3)*288}" y="{ty+56 + (i//3)*26}" class="lab2">{n}</text>'
-        f'<text x="{300 + (i%3)*288}" y="{ty+56 + (i//3)*26}" text-anchor="end" class="lab">{p:.1f}%</text>'
+        f'<circle cx="{54 + (i%4)*216}" cy="{ty+48 + (i//4)*26}" r="5" fill="{c}"/>'
+        f'<text x="{68 + (i%4)*216}" y="{ty+52 + (i//4)*26}" class="lab2">{n}</text>'
+        f'<text x="{228 + (i%4)*216}" y="{ty+52 + (i//4)*26}" text-anchor="end" class="lab">{p:.1f}%</text>'
         for i, (n, p, c) in enumerate(langs))
     today = datetime.now(timezone.utc).date().isoformat()
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
-  <title id="t">GitHub activity: contributions over the last year, headline stats and top languages</title>
+  <title id="t">Engineering rhythm: weekday pattern, monthly volume, active weeks and top languages</title>
   <style>
-    .bg{{fill:#0d1117}} .card{{fill:#11161d;stroke:#30363d}} .tile{{fill:#161b22;stroke:#21262d}}
+    .bg{{fill:#0d1117}} .card{{fill:#11161d;stroke:#30363d}} .tile{{fill:#161b22;stroke:#21262d}} .track{{fill:#161b22}}
     .h{{font:700 22px {SANS};fill:#e6edf3}} .s{{font:13px {FONT};fill:#8b949e}}
     .big{{font:700 28px {SANS};fill:#e6edf3}} .lab{{font:12px {SANS};fill:#8b949e}}
     .lab2{{font:13px {SANS};fill:#e6edf3}} .axis{{font:11px {FONT};fill:#7d8590}}
     .sec{{font:600 11px {FONT};fill:#8b949e;letter-spacing:2px}}
-    .c{{animation:fade .5s ease-out both}} @keyframes fade{{from{{opacity:0}}to{{opacity:1}}}}
-    @media (prefers-reduced-motion:reduce){{.c{{animation:none}}}}
+    .grow{{transform-box:fill-box;transform-origin:left center;animation:grow .7s ease-out both}}
+    .rise{{transform-box:fill-box;transform-origin:center bottom;animation:rise .7s ease-out both}}
+    @keyframes grow{{from{{transform:scaleX(0)}}to{{transform:scaleX(1)}}}}
+    @keyframes rise{{from{{transform:scaleY(0)}}to{{transform:scaleY(1)}}}}
+    @media (prefers-reduced-motion:reduce){{.grow,.rise{{animation:none}}}}
   </style>
   <rect class="bg" width="{W}" height="{H}" rx="18"/>
   <rect class="card" x="20" y="20" width="920" height="{H-40}" rx="14"/>
-  <text x="48" y="62" class="h">GitHub activity</text>
+  <text x="48" y="62" class="h">Engineering rhythm</text>
+  <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed daily</text>
   {tiles}
-  <text x="48" y="{Y0-34}" class="sec">CONTRIBUTIONS · LAST 12 MONTHS</text>
-  {"".join(months)}{dow}{"".join(cells)}{legend}
+  <text x="48" y="222" class="sec">WEEKDAY PATTERN</text>
+  {wd}
+  <text x="520" y="222" class="sec">MONTHLY VOLUME</text>
+  {mo}
   <text x="48" y="{ty}" class="sec">TOP LANGUAGES · PUBLIC REPOSITORIES</text>
   {bar}{items}
   <text x="912" y="{H-34}" text-anchor="end" class="s">updated {today} UTC</text>
