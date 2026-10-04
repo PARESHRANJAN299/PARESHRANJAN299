@@ -1,0 +1,48 @@
+name: Update profile charts
+
+on:
+  schedule:
+    - cron: "15 0 * * *"      # every day at 00:15 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate_consistency.py
+      - scripts/generate_activity.py
+      - config/consistency.json
+      - .github/workflows/profile-charts.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-charts
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate charts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/generate_consistency.py out/consistency.svg
+          python3 scripts/generate_activity.py out/activity.svg
+
+      # The generated file goes to a separate `output` branch, so `main` stays
+      # protected and its history stays clean.
+      - name: Publish to output branch
+        working-directory: out
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add consistency.svg activity.svg
+          git commit -q -m "Update charts"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${REPO}.git" output
