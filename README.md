@@ -82,13 +82,13 @@ const PARESH = {
 <table>
 <tr>
 <td align="center" width="50%" valign="top">
-    <a href="./assets/certificates/oreilly-databricks-data-engineer.png"><img src="./assets/certificates/oreilly-databricks-data-engineer.png" width="400" alt="O'Reilly Databricks Data Eng Course certificate"/></a><br/>
+    <a href="./assets/certificates/oreilly-databricks-data-engineer.jpeg"><img src="./assets/certificates/oreilly-databricks-data-engineer.jpeg" width="400" alt="O'Reilly Databricks Data Eng Course certificate"/></a><br/>
     <b>Databricks Data Eng Course</b><br/>
     <sub>O'Reilly · Issued Apr 11, 2026</sub><br/>
     <sub>Credential ID <code>270a6904-bfae-45c1-aa45-e2c4e7bdca26</code></sub>
 </td>
 <td align="center" width="50%" valign="top">
-    <a href="./assets/certificates/databricks-fundamentals-accreditation.png"><img src="./assets/certificates/databricks-fundamentals-accreditation.png" width="400" alt="Databricks Fundamentals Accreditation certificate"/></a><br/>
+    <a href="./assets/certificates/databricks-fundamentals-accreditation.jpeg"><img src="./assets/certificates/databricks-fundamentals-accreditation.jpeg" width="400" alt="Databricks Fundamentals Accreditation certificate"/></a><br/>
     <b>Databricks Fundamentals Accreditation</b><br/>
     <sub>Databricks Academy · Completed Mar 29, 2026</sub>
 </td>
@@ -100,15 +100,18 @@ const PARESH = {
 <table>
 <tr>
 <td align="center" width="33%" valign="top">
+    <a href="./assets/certificates/azure-data-factory-dp203.pdf"><img src="./assets/certificates/azure-data-factory-dp203.png" width="260" alt="Azure Data Factory Training for DP-203 certificate"/></a><br/>
     <b>Azure Data Factory Training for DP-203</b><br/>
     <sub>Intellipaat · Issued Dec 15, 2024</sub><br/>
     <sub>Certificate ID <code>31679-189383-205482</code></sub>
 </td>
 <td align="center" width="33%" valign="top">
+    <a href="./assets/certificates/oracle-rdbms-concepts-literacy.pdf"><img src="./assets/certificates/oracle-rdbms-concepts-literacy.png" width="260" alt="Oracle Database 12c Administrator Certified Associate RDBMS Concepts Literacy certificate"/></a><br/>
     <b>Oracle Database 12c Administrator Certified Associate: RDBMS Concepts Literacy (Beginner)</b><br/>
     <sub>Grow@Lenovo · Completed Jan 6, 2024</sub>
 </td>
 <td align="center" width="33%" valign="top">
+    <a href="./assets/certificates/jetking-network-administration-diploma.pdf"><img src="./assets/certificates/jetking-network-administration-diploma.png" width="260" alt="Jetking Diploma in Network Administration certificate"/></a><br/>
     <b>Diploma in Network Administration</b><br/>
     <sub>Jetking (NSDC Skill Development Partner) · Jul 2019 – Oct 2021 · 572 hrs · Grade B</sub><br/>
     <sub>Serial No. <code>1920-006104</code></sub>
