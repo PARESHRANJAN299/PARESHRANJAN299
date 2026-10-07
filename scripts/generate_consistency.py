@@ -84,6 +84,7 @@ def build() -> str:
     if os.environ.get("GITHUB_TOKEN"):
         streaks = fetch_streaks(CFG["username"], os.environ["GITHUB_TOKEN"], today)
 
+    stamp = (os.environ["TODAY"] + " 00:00") if os.environ.get("TODAY") else datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
     mx, my = sx(cd), sy(value)
     anchor, lx = ("end", mx - 12) if mx > 380 else ("start", mx + 12)
 
@@ -160,7 +161,7 @@ def build() -> str:
   <text x="648" y="188" class="val">{value:.2f}×</text>
   <text x="648" y="212" class="s">since {start.isoformat()}</text>
   {panel}
-  <text x="912" y="404" text-anchor="end" class="s">updated {today.isoformat()} UTC</text>
+  <text x="912" y="404" text-anchor="end" class="s">updated {stamp} UTC</text>
 </svg>
 '''
 
