@@ -29,7 +29,25 @@ QUERY = """query($u:String!){user(login:$u){
 
 FONT = 'ui-monospace,SFMono-Regular,Menlo,Consolas,monospace'
 SANS = '"Segoe UI",Helvetica,Arial,sans-serif'
-BAR, BAR_HI = "#2f81d8", "#79c0ff"
+# colour by rank: highest, next two, the middle, the lowest
+TIER = {"top": "#f0b72f", "high": "#3fb950", "mid": "#2f81d8", "low": "#a371f7"}
+
+
+def tier_of(values):
+    """Return a function that maps a value to its colour tier. Equal values share a tier."""
+    uniq = sorted(set(values), reverse=True)
+
+    def tier(v):
+        if not uniq or uniq[0] == 0:
+            return "mid"
+        if v == uniq[0]:
+            return "top"
+        if v in uniq[1:3]:
+            return "high"
+        if len(uniq) >= 6 and v in uniq[-2:]:
+            return "low"
+        return "mid"
+    return tier
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
@@ -87,8 +105,9 @@ def rhythm(user: dict):
 def build(user: dict) -> str:
     r = rhythm(user)
     W, H = 960, 612
-    top_wd = max(range(7), key=lambda i: r["by_wd"][i])      # first one wins a tie
-    busiest = WEEKDAYS[top_wd]
+    wmax_n = max(r["by_wd"])
+    top_days = [WEEKDAYS[i] for i, n in enumerate(r["by_wd"]) if n == wmax_n]
+    busiest = " · ".join(top_days[:2]) + ("…" if len(top_days) > 2 else "")
     avg = r["total"] / r["active_days"] if r["active_days"] else 0
     stats = [(f'{r["total"]:,}', "Contributions, last year"),
              (f'{r["active_weeks"]} / {r["weeks"]}', "Weeks with activity"),
@@ -96,7 +115,7 @@ def build(user: dict) -> str:
              (f"{avg:.1f}", "Avg per active day")]
     tiles = "".join(
         f'<rect x="{48 + i*219}" y="100" width="205" height="76" rx="10" class="tile"/>'
-        f'<text x="{64 + i*219}" y="138" class="big">{v}</text>'
+        f'<text x="{64 + i*219}" y="138" class="big"{" style=\"fill:" + TIER["top"] + "\"" if k == "Busiest weekday" else ""}>{v}</text>'
         f'<text x="{64 + i*219}" y="161" class="lab">{k}</text>'
         for i, (v, k) in enumerate(stats))
 
@@ -104,27 +123,37 @@ def build(user: dict) -> str:
     wmax = max(r["by_wd"]) or 1
     wtot = sum(r["by_wd"]) or 1
     wd = ""
+    wtier = tier_of(r["by_wd"])
     for i, n in enumerate(r["by_wd"]):
         y = 248 + i * 29
         w = 250 * n / wmax
-        col = BAR_HI if i == top_wd else BAR
+        t = wtier(n); col = TIER[t]
+        top = ' style="fill:' + TIER["top"] + ';font-weight:700"' if t == "top" else ""
         wd += (f'<text x="48" y="{y+13}" class="lab2">{WEEKDAYS[i]}</text>'
                f'<rect x="92" y="{y}" width="250" height="18" rx="4" class="track"/>'
                f'<rect x="92" y="{y}" width="{max(w,2):.1f}" height="18" rx="4" fill="{col}" class="grow" '
                f'style="animation-delay:{i*60}ms"/>'
-               f'<text x="456" y="{y+13}" text-anchor="end" class="lab">{n} · {n/wtot*100:.0f}%</text>')
+               f'<text x="456" y="{y+13}" text-anchor="end" class="lab"{top}>{n} · {n/wtot*100:.0f}%</text>')
 
     # monthly volume: vertical bars
     mmax = max((n for _, n in r["months"]), default=1) or 1
     mo, base, top = "", 424, 262
+    mtier = tier_of([n for _, n in r["months"]])
     for i, (m, n) in enumerate(r["months"]):
         x = 520 + i * 33
         h = (base - top) * n / mmax
-        col = BAR_HI if n == mmax else BAR
+        t = mtier(n); col = TIER[t]
+        num = ' style="fill:' + TIER["top"] + ';font-weight:700"' if t == "top" else ""
         mo += (f'<rect x="{x}" y="{base-max(h,2):.1f}" width="24" height="{max(h,2):.1f}" rx="4" fill="{col}" '
                f'class="rise" style="animation-delay:{i*50}ms"/>'
-               f'<text x="{x+12}" y="{base-max(h,2)-6:.1f}" text-anchor="middle" class="axis">{n}</text>'
+               f'<text x="{x+12}" y="{base-max(h,2)-6:.1f}" text-anchor="middle" class="axis"{num}>{n}</text>'
                f'<text x="{x+12}" y="{base+18}" text-anchor="middle" class="axis">{m}</text>')
+
+    legend = f'<text x="48" y="198" class="axis">colour shows rank:</text>'
+    lx = 168
+    for key, label in (("top", "highest"), ("high", "next two"), ("mid", "others"), ("low", "lowest")):
+        legend += f'<rect x="{lx}" y="189" width="10" height="10" rx="2" fill="{TIER[key]}"/><text x="{lx+16}" y="198" class="axis">{label}</text>'
+        lx += 24 + len(label) * 7 + 14
 
     # languages
     langs = languages(user)
@@ -139,7 +168,7 @@ def build(user: dict) -> str:
         f'<text x="{68 + (i%4)*216}" y="{ty+52 + (i//4)*26}" class="lab2">{n}</text>'
         f'<text x="{228 + (i%4)*216}" y="{ty+52 + (i//4)*26}" text-anchor="end" class="lab">{p:.1f}%</text>'
         for i, (n, p, c) in enumerate(langs))
-    today = datetime.now(timezone.utc).date().isoformat()
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t">
   <title id="t">Activity at a glance: contributions by weekday, contributions per month, active weeks and top languages</title>
@@ -158,15 +187,16 @@ def build(user: dict) -> str:
   <rect class="bg" width="{W}" height="{H}" rx="18"/>
   <rect class="card" x="20" y="20" width="920" height="{H-40}" rx="14"/>
   <text x="48" y="62" class="h">Activity at a glance</text>
-  <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed every 3 hours</text>
+  <text x="48" y="84" class="s">last 12 months · live from the GitHub API · refreshed automatically</text>
   {tiles}
+  {legend}
   <text x="48" y="222" class="sec">CONTRIBUTIONS BY WEEKDAY</text>
   {wd}
   <text x="520" y="222" class="sec">CONTRIBUTIONS PER MONTH</text>
   {mo}
   <text x="48" y="{ty}" class="sec">TOP LANGUAGES · PUBLIC REPOSITORIES</text>
   {bar}{items}
-  <text x="912" y="{H-34}" text-anchor="end" class="s">updated {today} UTC</text>
+  <text x="912" y="{H-34}" text-anchor="end" class="s">updated {stamp} UTC</text>
 </svg>
 '''
 
